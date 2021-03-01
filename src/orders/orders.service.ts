@@ -8,8 +8,10 @@ import { Order, OrderDocument } from './schemas/order.schema';
 @Injectable()
 export class OrdersService {
   constructor(@InjectModel('Order') private OrderModel: Model<OrderDocument>) {}
+  private readonly orders = this.OrderModel.find().exec();
+
   async getAll(): Promise<Order[]> {
-    return await this.OrderModel.find().exec();
+    return await (await this.orders).reverse();
   }
 
   async getOne(id): Promise<Order> {
@@ -17,8 +19,12 @@ export class OrdersService {
   }
 
   async create(CreateOrdersDto: CreateOrdersDto): Promise<Order> {
-    const newOrder = await new this.OrderModel(CreateOrdersDto);
-    return newOrder.save();
+    try {
+      const newOrder = await new this.OrderModel(CreateOrdersDto);
+      return newOrder.save();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async update(id: string, OrderDto: UpdateOrdersDto): Promise<Order> {

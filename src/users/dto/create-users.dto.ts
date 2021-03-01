@@ -8,6 +8,8 @@ export class CreateUsersDto {
   readonly address: string;
   readonly position: string;
   readonly date: string;
+  readonly vo: string;
+  readonly car: string;
   readonly password: string;
   readonly password2: string;
 }

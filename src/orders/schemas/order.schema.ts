@@ -10,25 +10,31 @@ export class Order {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
   operator: User;
 
-  @Prop()
+  @Prop({ type: String, required: false })
   phone: string;
 
-  @Prop()
+  @Prop({ type: String, required: false })
   from: string;
 
-  @Prop()
+  @Prop({ type: String, required: false })
   to: string;
 
-  @Prop()
-  price?: number;
+  @Prop({ type: String, required: false })
+  price: number;
 
-  @Prop()
+  @Prop({ type: String, required: false })
   date: string;
 
-  @Prop()
+  @Prop({ type: String, required: false })
   time: string;
 
-  @Prop()
+  @Prop({ type: String, required: false })
+  child: boolean;
+
+  @Prop({ type: String, required: false })
+  bagage: boolean;
+
+  @Prop({ type: String, required: false, default: '' })
   fulfilled: string;
 }
 

@@ -6,4 +6,6 @@ export class UpdateOrdersDto {
   readonly date: string;
   readonly time: string;
   readonly fulfilled: string;
+  readonly child: boolean;
+  readonly bagage: boolean;
 }

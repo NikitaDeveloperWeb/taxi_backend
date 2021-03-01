@@ -30,7 +30,7 @@ export class User {
   address: string;
 
   @Prop({ type: String, required: false })
-  drive?: string;
+  vo?: string;
 
   @Prop({ type: String, required: true })
   position: string;

@@ -6,6 +6,8 @@ export class UpdateUsersDto {
   readonly inn?: string;
   readonly address?: string;
   readonly position?: string;
+  readonly vo: string;
+  readonly car: string;
   readonly date?: string;
   readonly password?: string;
 }
