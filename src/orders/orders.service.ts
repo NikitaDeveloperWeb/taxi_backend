@@ -28,6 +28,7 @@ export class OrdersService {
   }
 
   async update(id: string, OrderDto: UpdateOrdersDto): Promise<Order> {
+    console.log(OrderDto);
     return this.OrderModel.findByIdAndUpdate(id, OrderDto, { new: true });
   }
 
