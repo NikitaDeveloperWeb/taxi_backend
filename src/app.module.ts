@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     MongooseModule.forRoot(
       'mongodb+srv://UserAdm:kodfg123@cluster0.3ydia.mongodb.net/taxi?retryWrites=true&w=majority',
+      { useFindAndModify: false, useCreateIndex: true },
     ),
     UsersModule,
     OrdersModule,
