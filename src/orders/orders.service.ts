@@ -8,10 +8,9 @@ import { Order, OrderDocument } from './schemas/order.schema';
 @Injectable()
 export class OrdersService {
   constructor(@InjectModel('Order') private OrderModel: Model<OrderDocument>) {}
-  private readonly orders = this.OrderModel.find().exec();
 
   async getAll(): Promise<Order[]> {
-    return await (await this.orders).reverse();
+    return (await this.OrderModel.find().exec()).reverse();
   }
 
   async getOne(id): Promise<Order> {
