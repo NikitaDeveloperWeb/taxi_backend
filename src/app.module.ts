@@ -9,7 +9,8 @@ import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://UserAdm:kodfg123@cluster0.3ydia.mongodb.net/taxi?retryWrites=true&w=majority',
+      'mongodb+srv://UserAdm:kodfg123@cluster0.3ydia.mongodb.net/taxi?retryWrites=true&w=majority' ||
+        process.env.MONGOLAB_URI,
       { useFindAndModify: false, useCreateIndex: true },
     ),
     UsersModule,
